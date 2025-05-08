@@ -1,0 +1,55 @@
+apiVersion: project.openshift.io/v1
+kind: Project
+metadata:
+  annotations:
+    openshift.io/sa.scc.mcs: s0:c29,c9
+    openshift.io/sa.scc.supplemental-groups: 1000830000/10000
+    openshift.io/sa.scc.uid-range: 1000830000/10000
+  creationTimestamp: "2025-04-01T20:06:29Z"
+  deletionTimestamp: "2025-04-01T20:08:58Z"
+  labels:
+    k8s.ovn.org/primary-user-defined-network: ""
+    kube-burner-job: create-cudn-l2
+    kube-burner-runid: 3ea2fa58-ef65-4a98-8d59-3fbe27996d8d
+    kube-burner-uuid: 8740afbc-9097-4f7c-8ad1-03c90067352d
+    kubernetes.io/metadata.name: cudn-density-server-0
+    pod-security.kubernetes.io/audit: privileged
+    pod-security.kubernetes.io/enforce: privileged
+    pod-security.kubernetes.io/warn: privileged
+    security.openshift.io/scc.podSecurityLabelSync: "false"
+  name: cudn-density-server-0
+  resourceVersion: "44333"
+  uid: af674d16-b2bd-4ad4-93ea-6e2bc27a33c3
+spec:
+  finalizers:
+  - kubernetes
+status:
+  conditions:
+  - lastTransitionTime: "2025-04-01T20:09:04Z"
+    message: All resources successfully discovered
+    reason: ResourcesDiscovered
+    status: "False"
+    type: NamespaceDeletionDiscoveryFailure
+  - lastTransitionTime: "2025-04-01T20:09:04Z"
+    message: All legacy kube types successfully parsed
+    reason: ParsedGroupVersions
+    status: "False"
+    type: NamespaceDeletionGroupVersionParsingFailure
+  - lastTransitionTime: "2025-04-01T20:09:04Z"
+    message: All content successfully deleted, may be waiting on finalization
+    reason: ContentDeleted
+    status: "False"
+    type: NamespaceDeletionContentFailure
+  - lastTransitionTime: "2025-04-01T20:09:04Z"
+    message: 'Some resources are remaining: network-attachment-definitions.k8s.cni.cncf.io
+      has 1 resource instances, pods. has 6 resource instances'
+    reason: SomeResourcesRemain
+    status: "True"
+    type: NamespaceContentRemaining
+  - lastTransitionTime: "2025-04-01T20:09:04Z"
+    message: 'Some content in the namespace has finalizers remaining: k8s.ovn.org/user-defined-network-protection
+      in 1 resource instances'
+    reason: SomeFinalizersRemain
+    status: "True"
+    type: NamespaceFinalizersRemaining
+  phase: Terminating

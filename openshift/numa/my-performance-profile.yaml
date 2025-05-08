@@ -1,0 +1,23 @@
+---
+apiVersion: performance.openshift.io/v2
+kind: PerformanceProfile
+metadata:
+  name: performance
+spec:
+  cpu:
+    isolated: 2-55,58-111
+    reserved: 0-1,56-57
+  machineConfigPoolSelector:
+    machineconfiguration.openshift.io/role: worker-ai
+  net:
+    userLevelNetworking: false
+  nodeSelector:
+    node-role.kubernetes.io/worker-ai: ""
+  numa:
+    topologyPolicy: single-numa-node
+  realTimeKernel:
+    enabled: false
+  workloadHints:
+    highPowerConsumption: false
+    perPodPowerManagement: false
+    realTime: false

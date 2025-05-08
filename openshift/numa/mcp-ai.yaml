@@ -1,0 +1,16 @@
+apiVersion: machineconfiguration.openshift.io/v1
+kind: MachineConfigPool
+metadata:
+  name: worker-ai
+  labels:
+    machineconfiguration.openshift.io/role: worker-ai
+spec:
+  machineConfigSelector:
+    matchExpressions:
+      - key: machineconfiguration.openshift.io/role
+        operator: In
+        values: [worker, worker-ai]
+
+  nodeSelector:
+    matchLabels:
+      node-role.kubernetes.io/worker-ai: "" 
